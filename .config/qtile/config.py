@@ -196,7 +196,6 @@ def get_widgets():
         ),
         widget.GroupBox(
             highlight_method='line',
-            fontsize=24,
             background=catppuccin['peach'],
             highlight_color=[catppuccin['peach'], catppuccin['peach']],
             this_current_screen_border=catppuccin['white'],

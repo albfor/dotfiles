@@ -2,3 +2,6 @@
 *.elc
 auto-save-list/
 eln-auto-cache/
+backups/
+auto-saves/
+

@@ -13,7 +13,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t)))
 (setq backup-directory-alist
-      `((".*" . ,(expand-file-name "backup/" user-emacs-directory))))
+      `((".*" . ,(expand-file-name "backups/" user-emacs-directory))))
 (setq create-lockfiles nil)
 (setq make-backup-files t
       backup-by-copying t

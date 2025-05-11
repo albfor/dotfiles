@@ -91,6 +91,11 @@
   ("M-g g" . consult-goto-line))
 (use-package avy
   :bind ("C-;" . avy-goto-char-in-line))
+(use-package markdown-mode
+  :mode ("\\.md\\'" . markdown-mode)
+  :init
+  (setq markdown-command "pandoc"))
+
 
 (defun my/cmake-pick-target ()
   "Parse cmake --build . --target help and let user pick a clean target to build."
@@ -121,4 +126,3 @@
 (keymap-global-set "C-c a" 'org-agenda)
 (keymap-global-set "C-c c" 'org-capture)
 (keymap-global-set "C-x C-b" 'ibuffer)
-

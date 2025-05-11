@@ -8,6 +8,8 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(global-display-line-numbers-mode t)
+(setq display-line-numbers-type 'relative)
 
 ;; Store backups & auto-saves in a directory
 (setq auto-save-file-name-transforms
@@ -27,8 +29,6 @@
 ;; C format
 (setq c-default-style "k&r"
       c-basic-offset 4)
-;; Line numbers
-(global-display-line-numbers-mode t)
 
 ;; Packages
 (add-to-list 'package-archives
@@ -64,11 +64,6 @@
   (corfu-preselect 'first)
   (corfu-quit-no-match 'separator)
   (corfu-scroll-margin 4))
-;(use-package nerd-icons-corfu
-;  :after corfu
-;  :custom
-;  (nerd-icons-corfu-font "JetBrainsMono Nerd Font")
-;  :hook (corfu-mode . nerd-icons-corfu-mode))
 (use-package yasnippet
   :config (yas-global-mode 1))
 (use-package tree-sitter
@@ -92,7 +87,7 @@
   ("C-x r b" . consult-bookmark)
   ("M-g g" . consult-goto-line))
 (use-package avy
-  :bind ("C-;" . avy-goto-word-1))
+  :bind ("C-;" . avy-goto-char-in-line))
 
 (defun my/cmake-pick-target ()
   "Parse cmake --build . --target help and let user pick a clean target to build."
@@ -117,13 +112,12 @@
          (target (completing-read "CMake target: " cleaned)))
     (compile (format "cmake --build %s --target %s" build-dir target))))
 
-(keymap-global-set "C-c m" #'my/cmake-pick-target)
+(keymap-global-set "C-c m" 'my/cmake-pick-target)
 (keymap-global-set "M-z" 'zap-up-to-char)
-
-(global-set-key (kbd "C-c l") #'org-store-link)
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
-(global-set-key (kbd "C-x C-b") #'ibuffer)
+(keymap-global-set "C-c l" 'org-store-link)
+(keymap-global-set "C-c a" 'org-agenda)
+(keymap-global-set "C-c c" 'org-capture)
+(keymap-global-set "C-x C-b" 'ibuffer)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

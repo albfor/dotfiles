@@ -4,6 +4,9 @@ DOTFILES_DIR="$HOME/projects/dotfiles"
 
 declare -A SYMLINKS=(
     ["$DOTFILES_DIR/emacs"]="$HOME/.config/emacs"
+    ["$DOTFILES_DIR/sxhkd"]="$HOME/.config/sxhkd"
+    ["$DOTFILES_DIR/kitty"]="$HOME/.config/kitty"
+    ["$DOTFILES_DIR/bspwm"]="$HOME/.config/bspwm"
 )
 
 for src in "${!SYMLINKS[@]}"; do

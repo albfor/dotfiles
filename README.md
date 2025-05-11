@@ -25,3 +25,7 @@ And open frames/instances with:
 emacsclient -c -n -s main
 ```
 
+## Rofi
+
+Install according to its documentation.
+

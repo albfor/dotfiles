@@ -7,7 +7,6 @@ declare -A SYMLINKS=(
     ["$DOTFILES_DIR/sxhkd"]="$HOME/.config/"
     ["$DOTFILES_DIR/kitty"]="$HOME/.config/"
     ["$DOTFILES_DIR/bspwm"]="$HOME/.config/"
-    ["$DOTFILES_DIR/external/rofi"]="$HOME/.config/"
 )
 
 for src in "${!SYMLINKS[@]}"; do

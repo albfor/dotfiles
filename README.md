@@ -16,7 +16,7 @@ This setup assumes Emacs is running as a daemon with a custom  init-directory.
 Make sure to launch with the following command:
 
 ``` bash
-emacs --daemon=main --init-directory="/path/to/this/emacs"
+emacs --daemon=main --init-directory="</path/to/this/repo>/emacs"
 ```
 
 And open frames/instances with:

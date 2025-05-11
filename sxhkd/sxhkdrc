@@ -14,6 +14,7 @@ super + @space
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# Launch an emacsclient
 super + e
         emacsclient -c -n -s main
 #

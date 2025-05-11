@@ -1,28 +1,34 @@
-(setq inihibit-startup-message t)
+;; Basic config
+(setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 (setq ring-bell-function 'ignore)
+(setq default-frame-alist '((font . "JetBrainsMono Nerd Font-14")))
+(setq modus-themes-region '(bg-only))
+(load-theme 'modus-operandi)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
-(when (display-graphic-p)
-  (set-frame-font "JetBrainsMono Nerd Font-14")
-  (load-theme 'modus-operandi)
-  (scroll-bar-mode 0)
-  (menu-bar-mode 0)
-  (tool-bar-mode 0))
+;; Store backups & auto-saves in a directory
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t)))
+(setq backup-directory-alist
+      `((".*" . ,(expand-file-name "backup/" user-emacs-directory))))
+(setq create-lockfiles nil)
+(setq make-backup-files t
+      backup-by-copying t
+      version-control t
+      delete-old-versions t
+      kept-old-versions 6
+      kept-new-versions 9)
+(setq auto-save-timeout 20
+      auto-save-interval 200)
 
 ;; C format
 (setq c-default-style "k&r"
       c-basic-offset 4)
-
-;; Store backups & auto-saves in a directory
-(let ((backup-dir (expand-file-name "backups/" user-emacs-directory))
-      (autosave-dir (expand-file-name "auto-saves/" user-emacs-directory)))
-  (setq backup-directory-alist `(("." . ,backup-dir)))
-  (setq auto-save-file-name-transforms `((".*" ,autosave-dir t))))
-
 ;; Line numbers
 (global-display-line-numbers-mode t)
-
-
 
 ;; Packages
 (add-to-list 'package-archives
@@ -37,7 +43,7 @@
   :hook (dired-mode . dired-hide-details-mode))
 (use-package eglot
   :hook
-  ((c-mode c++-mode python-mode) . eglot-ensure)
+  ((c-mode c++-mode) . eglot-ensure)
   :config
   (add-to-list
    'eglot-server-programs

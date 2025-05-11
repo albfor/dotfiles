@@ -16,7 +16,7 @@ super + Escape
 
 # Launch an emacsclient
 super + e
-        emacsclient -c -n -s main
+        emacsclient -r -n -s main
 #
 # bspwm hotkeys
 #

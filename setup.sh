@@ -3,10 +3,11 @@
 DOTFILES_DIR="$HOME/projects/dotfiles"
 
 declare -A SYMLINKS=(
-    ["$DOTFILES_DIR/emacs"]="$HOME/.config/emacs"
-    ["$DOTFILES_DIR/sxhkd"]="$HOME/.config/sxhkd"
-    ["$DOTFILES_DIR/kitty"]="$HOME/.config/kitty"
-    ["$DOTFILES_DIR/bspwm"]="$HOME/.config/bspwm"
+    ["$DOTFILES_DIR/emacs"]="$HOME/.config/"
+    ["$DOTFILES_DIR/sxhkd"]="$HOME/.config/"
+    ["$DOTFILES_DIR/kitty"]="$HOME/.config/"
+    ["$DOTFILES_DIR/bspwm"]="$HOME/.config/"
+    ["$DOTFILES_DIR/external/rofi"]="$HOME/.config/"
 )
 
 for src in "${!SYMLINKS[@]}"; do

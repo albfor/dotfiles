@@ -1,3 +1,5 @@
 # Emacs
 emacs/*
-emacs/!init.el
+!emacs/init.el
+!emacs/auto-saves/.gitkeep
+!emacs/backup/.gitkeep

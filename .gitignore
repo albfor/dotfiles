@@ -2,3 +2,5 @@
 emacs/*
 !emacs/init.el
 !emacs/backups/.gitkeep
+
+README.html

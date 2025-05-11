@@ -29,6 +29,11 @@
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 100)
+(setq recentf-save-file (expand-file-name "recentf" user-emacs-directory))
+
 ;; C format
 (setq c-default-style "k&r"
       c-basic-offset 4)
@@ -58,6 +63,20 @@
   :ensure nil
   :hook (eglot-managed-mode . eldoc-box-hover-mode))
 (use-package magit)
+(use-package dashboard
+  :init
+  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+  (setq dashboard-items '((recents . 5)
+			   (bookmarks . 5)
+			   (projects . 5)))
+  (setq dashboard-display-icons-p t)
+  (setq dashboard-icon-type 'nerd-icons)
+  (setq dashboard-center-content t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  :config
+  (dashboard-setup-startup-hook))
+
 (use-package corfu
   :init
   (global-corfu-mode)
@@ -95,7 +114,13 @@
   :mode ("\\.md\\'" . markdown-mode)
   :init
   (setq markdown-command "pandoc"))
-
+(use-package projectile
+  :init
+  (setq projectile-project-search-path '("~/projects"))
+  :config
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (keymap-global-set "C-c p" 'projectile-command-map)
+  (projectile-mode +1))
 
 (defun my/cmake-pick-target ()
   "Parse cmake --build . --target help and let user pick a clean target to build."

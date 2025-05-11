@@ -27,5 +27,5 @@ emacsclient -c -n -s main
 
 ## Rofi
 
-Install according to its documentation.
+Install according to its [documentation](https://github.com/adi1090x/rofi/). 
 

@@ -154,3 +154,12 @@
 (keymap-global-set "C-c a" 'org-agenda)
 (keymap-global-set "C-c c" 'org-capture)
 (keymap-global-set "C-x C-b" 'ibuffer)
+
+(defvar flymake-prefix-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "n") #'flymake-goto-next-error)
+    (define-key map (kbd "p") #'flymake-goto-next-previous)
+    (define-key map (kbd "l") #'flymake-show-buffer-diagnostics)
+    map))
+
+(define-key global-map (kbd "C-c !") flymake-prefix-map)

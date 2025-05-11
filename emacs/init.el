@@ -44,6 +44,8 @@
 	     '("melpa" . "https://melpa.org/packages/") t)
 (setq use-package-always-ensure t)
 
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
 (use-package nerd-icons)
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))

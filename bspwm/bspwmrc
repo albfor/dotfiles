@@ -6,10 +6,15 @@ emacs-gtk+x11 --daemon &
 feh --bg-scale /usr/share/backgrounds/f40/default/f40-01-night.png &
 xrandr --output DP-4 --mode 2560x1440 --rate 165 &
 $HOME/.config/bspwm/steam-game-watcher.sh &
+polybar mybar &
 
 setxkbmap -option ctrl:swapcaps
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV
+bspc desktop I --rename 
+bspc desktop II --rename 󰖟
+bspc desktop III --rename 
+bspc desktop IV --rename 󰭹
 
 bspc config border_width         2
 bspc config window_gap          12

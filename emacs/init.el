@@ -44,6 +44,10 @@
 	     '("melpa" . "https://melpa.org/packages/") t)
 (setq use-package-always-ensure t)
 
+(use-package posframe)
+(use-package vertico-posframe
+  :after vertico
+  :init (vertico-posframe-mode))
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 (use-package nerd-icons)
@@ -77,6 +81,8 @@
   (setq dashboard-center-content t)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
+  :hook
+  (dashboard-mode . (lambda () (display-line-numbers-mode -1)))
   :config
   (dashboard-setup-startup-hook))
 
@@ -107,10 +113,13 @@
   (completion-category-overrides '((file (styles basic partial-completion)))))
 (use-package consult
   :bind
-  ("M-i" . consult-imenu)	
+  ("M-i" . consult-imenu)
+  ("C-s" . consult-line)
   ("C-x b" . consult-buffer)
+  ("C-x C-r" . consult-recent-file)
   ("C-x r b" . consult-bookmark)
-  ("M-g g" . consult-goto-line))
+  ("M-g g" . consult-goto-line)
+  ("C-x p b" . consult-project-buffer))
 (use-package avy
   :bind ("C-;" . avy-goto-char-in-line))
 (use-package markdown-mode
